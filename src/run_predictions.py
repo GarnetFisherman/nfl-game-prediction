@@ -1,3 +1,5 @@
+from pathlib import Path
+from datetime import datetime
 from src.data import (
     load_games,
     prepare_completed_games,
@@ -103,11 +105,48 @@ def run_predictions():
     )
 
     return predictions
+def save_predictions(
+    predictions,
+    output_path="data/latest_predictions.csv",
+):
+    """
+    Save the latest prediction results for the Streamlit app.
+    """
+
+    output_path = Path(output_path)
+
+    output_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    result = predictions.copy()
+
+    result["predictions_updated"] = (
+        datetime.now().isoformat(
+            timespec="seconds"
+        )
+    )
+
+    result.to_csv(
+        output_path,
+        index=False,
+    )
+
+    return output_path
 
 
 if __name__ == "__main__":
 
     predictions = run_predictions()
+
+    output_path = save_predictions(
+        predictions
+    )
+
+    print(
+        f"\nPredictions saved to: {output_path}"
+    )
 
     columns = [
         "season",

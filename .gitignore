@@ -13,3 +13,6 @@ __pycache__/
 
 .agents/
 .claude/
+
+data/*
+!data/latest_predictions.csv
