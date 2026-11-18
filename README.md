@@ -1,3 +1,9 @@
+🌐 Live Application
+Launch the NFL Game Prediction Dashboard - https://nfl-game-prediction-irwr7pb3vf8yku7e6gs6cb.streamlit.app/
+
+The dashboard is powered by a scheduled prediction pipeline that refreshes NFL data, retrains the model, generates the upcoming week's probabilities, and publishes the latest results automatically.
+
+
 🏈 NFL Game Prediction
 An end-to-end machine learning project that predicts NFL game winners and win probabilities using recent team performance, advanced play-by-play efficiency metrics, and chronological walk-forward validation.
 
